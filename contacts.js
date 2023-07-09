@@ -23,8 +23,13 @@ const contactsPath = require('./db/contacts.json') ;
 };
 
 
-function getContactById(contactId) {
-  // ...твій код. Повертає об'єкт контакту з таким id. Повертає null, якщо контакт з таким id не знайдений.
+const getContactById = async (id) => {
+
+  const contacts = await listContacts(); 
+  const result = contacts.find(item => item.id === id);
+
+  return result || null;
+
 }
 
 function removeContact(contactId) {
@@ -36,4 +41,5 @@ function addContact(name, email, phone) {
 }
 
 module.exports = {contactsPath,
-listContacts}
+listContacts,
+getContactById}

@@ -18,7 +18,8 @@ const invokeAction = async ({ action, id, name, email, phone }) => {
       break;
 
     case "get":
-      // ... id
+        const oneContact = await contacts.getContactById(id);
+        return console.log (oneContact);
       break;
 
     case "add":
@@ -34,4 +35,5 @@ const invokeAction = async ({ action, id, name, email, phone }) => {
   }
 }
 
-invokeAction({action:"list"});
+// invokeAction({action:"list"});
+invokeAction({ action: "get", id: "drsAJ4SHPYqZeG-83QTVW" });
